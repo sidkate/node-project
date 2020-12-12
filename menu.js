@@ -5,7 +5,7 @@ const rl = readline.createInterface({
     output: process.stdout
 });
 
-let menu = (menuHeader, items) => {
+const menu = (menuHeader, items) => {
     let queryText = menuHeader + "\n";
     for (let index in items) {
         let item = items[index];
