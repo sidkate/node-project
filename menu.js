@@ -1,9 +1,4 @@
-const readline = require('readline');
-
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
+const { rl } = require('./globals.js');
 
 const menu = (menuHeader, items) => {
     let queryText = menuHeader + "\n";
