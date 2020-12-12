@@ -25,7 +25,7 @@ const deleteFromCatalog = (callback) => {
     }
     console.log("catalog contains: ");
     console.log(catalog);// JSON.stringify(catalog, null, 2));
-    rl.question("input item index to remove from catalog:\n", processIndexValue);
+    rl.question("input item ID to remove from catalog:\n", processIndexValue);
 }
 
 module.exports = {
