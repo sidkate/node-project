@@ -4,8 +4,17 @@
   "description": "shop administration console",
   "main": "index.js",
   "scripts": {
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    "serve": "nodemon --inspect src/index.js  --ignore data"
   },
   "author": "Sidorenkova Ekaterina",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "uuid": "^8.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
 }

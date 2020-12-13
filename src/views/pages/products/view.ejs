@@ -1,0 +1,26 @@
+<%- include('../../fragments/header.ejs'); %>
+<%- include('./menu.ejs'); %>
+
+<div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Image</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% products.forEach(product => { %>
+                    <tr>
+                        <td><%= product.title %></td>
+                        <td><%= product.img %></td>
+                        <td><%= product.price %></td>
+                        <td><a href="/products/edit/<%= product.id %>">Edit</a></td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+</div>
+
+<%- include('../../fragments/footer.ejs'); %>

@@ -1,15 +1,23 @@
-const { listCatalog } = require('./list.js');
-const { addToCatalog } = require('./add.js');
-const { deleteFromCatalog } = require('./delete.js');
-const { changeInCatalog } = require('./change.js');
-const { menu } = require('./menu.js');
+const express = require('express');
+const path = require('path');
+const requestLogger = require('./middlewares/request-logger.middleware');
+const controllers = require('./controllers');
 
-const menuItems = {
-    1: { text: "list catalog", func: (cb) => { listCatalog(cb) } },
-    2: { text: "add product to catalog", func: (cb) => { addToCatalog(cb) } },
-    3: { text: "delete product from catalog", func: (cb) => { deleteFromCatalog(cb) } },
-    4: { text: "change product in catalog", func: (cb) => { changeInCatalog(cb) } },
-    0: { text: "exit", func: (cb) => { process.exit(0) } },
-}
+const PORT = 3000;
 
-menu("Enter menu item: ", menuItems);
+const server = express()
+
+server.set('view engine', 'ejs');
+server.set('views', path.resolve(__dirname, 'views'));
+
+server.use(express.static(path.resolve(__dirname, 'public')));
+
+server.use(express.json());
+server.use(express.urlencoded({ extended: true }));
+server.use(requestLogger);
+
+server.use(controllers);
+
+server.listen(PORT, () => {
+    console.log(`Server is listening on port ${PORT}`);
+});
