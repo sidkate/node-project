@@ -12,4 +12,4 @@ const menuItems = {
     0: { text: "exit", func: (cb) => { process.exit(0) } },
 }
 
-menu("Введите пункт меню: ", menuItems);
+menu("Enter menu item: ", menuItems);
