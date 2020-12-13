@@ -4,7 +4,7 @@
   "description": "shop administration console",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node src/index.js"
   },
   "author": "Sidorenkova Ekaterina",
   "license": "ISC"
