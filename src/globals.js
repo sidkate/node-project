@@ -6,7 +6,7 @@ const rl = readline.createInterface({
     output: process.stdout
 });
 
-const catalogFilePath = path.resolve(__dirname, 'catalog.json');
+const catalogFilePath = path.resolve(__dirname, '..', 'data', 'catalog.json');
 
 module.exports = {
     catalogFilePath,
