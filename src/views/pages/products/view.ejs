@@ -10,13 +10,14 @@
                     <th>Price</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="products-table-body">
                 <% products.forEach(product => { %>
                     <tr>
                         <td><%= product.title %></td>
                         <td><%= product.img %></td>
                         <td><%= product.price %></td>
                         <td><a href="/products/edit/<%= product.id %>">Edit</a></td>
+                        <td><span class="delete-product" onclick="deleteProduct('<%= product.id %>')">Delete</span></td>
                     </tr>
                 <% }); %>
             </tbody>
