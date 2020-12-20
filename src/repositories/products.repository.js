@@ -29,14 +29,60 @@ const productsRepository = {
     },
 
     async update(id, product) {
-        product.id = id;
+        product = {
+            ...product,
+            id: id
+        }
         const products = await this.getAll();
         const found = products.find(product => product.id === id);
+
+        if (!found)
+            return undefined;
+
         products[products.indexOf(found)] = product;
 
         await writeJsonFile(FILE_PATH, products);
 
         return product;
+    },
+
+    async patch(id, productPatch) {
+        productPatch = {
+            ...productPatch,
+            id: id
+        }
+
+        const products = await this.getAll();
+        const found = products.find(product => product.id === id);
+
+        if (!found)
+            return undefined;
+
+        productPatch = {
+            ...found,
+            ...productPatch,
+            id: id
+        }
+
+        products[products.indexOf(found)] = productPatch;
+
+        await writeJsonFile(FILE_PATH, products);
+
+        return productPatch;
+    },
+
+    async delete(id) {
+        const products = await this.getAll();
+        const found = products.find(product => product.id === id);
+
+        if (!found)
+            return undefined;
+
+        products.splice(products.indexOf(found), 1);
+
+        await writeJsonFile(FILE_PATH, products);
+
+        return found;
     }
 
 };
