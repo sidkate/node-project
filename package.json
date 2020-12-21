@@ -4,6 +4,7 @@
   "description": "shop administration console",
   "main": "index.js",
   "scripts": {
+    "build": "webpack --config webpack.config.js",
     "start": "node src/index.js",
     "serve": "nodemon --inspect src/index.js  --ignore data"
   },

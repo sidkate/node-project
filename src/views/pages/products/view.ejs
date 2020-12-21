@@ -17,7 +17,7 @@
                         <td><%= product.img %></td>
                         <td><%= product.price %></td>
                         <td><a href="/products/edit/<%= product.id %>">Edit</a></td>
-                        <td><span class="delete-product" onclick="deleteProduct('<%= product.id %>')">Delete</span></td>
+                        <td><span class="delete-product" onclick="myAjax.deleteProduct('<%= product.id %>')">Delete</span></td>
                     </tr>
                 <% }); %>
             </tbody>
