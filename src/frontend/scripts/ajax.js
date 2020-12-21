@@ -1,4 +1,6 @@
-const getProducts = () => {
+import '../styles.css';
+
+export function getProducts() {
     fetch('/api/products')
         .then(resp => resp.json())
         .then(products => {
@@ -11,7 +13,7 @@ const getProducts = () => {
                         <td>${product.img}</td>
                         <td>${product.price}</td>
                         <td><a href="/products/edit/${product.id}">Edit</a></td>
-                        <td><span class="delete-product" onclick="deleteProduct('${product.id}')">Delete</span></td>
+                        <td><span class="delete-product" onclick="myAjax.deleteProduct('${product.id}')">Delete</span></td>
                     </tr>
                 `;
                 productsTableBody.innerHTML += productTableRow;
@@ -19,7 +21,7 @@ const getProducts = () => {
         })
 }
 
-const deleteProduct = (id) => {
+export function deleteProduct(id) {
     fetch(`/api/products/${id}`, {
         method: 'DELETE'
     })
