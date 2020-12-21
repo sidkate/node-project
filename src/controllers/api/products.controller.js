@@ -24,6 +24,7 @@ router.post('/', async (request, response) => {
         response
             .status(201)
             .json(product);
+        return;
     }
 
     response.status(404).send('cannot create product');
@@ -35,6 +36,7 @@ router.patch('/:id', async (request, response) => {
         response
             .status(201)
             .json(patched);
+        return;
     }
     response.status(404).send(`product not found: ${request.params.id}`);
 });
@@ -46,6 +48,7 @@ router.put("/:id", async (request, response) => {
         response
             .status(201)
             .json(updated);
+        return;
     }
 
     response.status(404).send(`product not found: ${request.params.id}`);
@@ -57,6 +60,7 @@ router.delete("/:id", async (request, response) => {
         response
             .status(201)
             .json(deleted);
+        return;
     }
     response.status(404).send(`product not found: ${request.params.id}`);
 });
