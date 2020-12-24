@@ -5,11 +5,8 @@ const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-    mode: 'development',
+    mode: 'production',
     devtool: 'eval-cheap-module-source-map',
-    devServer: {
-        port: 3000
-    },
     entry: path.resolve(__dirname, 'src/frontend/scripts/ajax.js'),
     output: {
         path: path.resolve(__dirname, 'src/public'),
