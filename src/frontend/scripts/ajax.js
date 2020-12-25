@@ -1,4 +1,4 @@
-import '../styles.css';
+import '/src/assets/themes/base/styles/base.less';
 
 export function getProducts() {
     fetch('/api/products')

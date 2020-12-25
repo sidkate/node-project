@@ -1,0 +1,78 @@
+.menu-main {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    float: right;
+    padding-right: 30px;
+
+    & li {
+        display: inline-block;
+        list-style: none;
+        padding: 8px;
+        padding-top: 45px;
+    }
+
+    & li:not(:last-of-type){
+        margin-right: 16px;
+    }
+
+    & a {
+        display: block;
+        height: 30px;
+        padding-left: 32px;
+        color: #a0abb5;
+        text-decoration: none;
+        font-size: 20px;
+        text-transform: uppercase;
+        line-height: 30px;
+    }
+
+    &._active a,
+    & a:hover {
+        color: #fff;
+    }
+
+    & &__home a {
+        background: url(../../images/ic_home.png) left center no-repeat;
+    }
+
+    & &__home._active a,
+    & &__home a:hover {
+        background: url(../../images/ic_home_h.png) left center no-repeat;
+    }
+
+    & &__catalog a {
+        background: url(../../images/ic_catalog.png) left center no-repeat;
+    }
+
+    & &__catalog._active a,
+    & &__catalog a:hover {
+        background: url(../../images/ic_catalog_h.png) left center no-repeat;
+    }
+
+    & &__contacts a {
+        background: url(../../images/ic_contacts.png) left center no-repeat;
+    }
+
+    & &__contacts._active a,
+    & &__contacts a:hover {
+        background: url(../../images/ic_contacts_h.png) left center no-repeat;
+    }
+
+    & &__registr a {
+        background: url(../../images/ic_registr.png) left center no-repeat;
+    }
+
+    & &__registr._active a
+    & &__registr a:hover{
+        background: url(../../images/ic_registr_h.png) left center no-repeat;
+    }
+
+    & &__basket a{
+        background: url(../../images/shopping.png) left center no-repeat;
+        color: #fff;
+    }
+
+}
+
+  

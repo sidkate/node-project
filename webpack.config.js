@@ -6,9 +6,10 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
     mode: 'production',
-    devtool: 'eval-cheap-module-source-map',
+    //devtool: 'eval-cheap-module-source-map',
     entry: path.resolve(__dirname, 'src/frontend/scripts/ajax.js'),
     output: {
+        publicPath: "/",
         path: path.resolve(__dirname, 'src/public'),
         filename: 'main.js',
         library: 'myAjax' // access to exported functions from web
@@ -25,15 +26,42 @@ module.exports = {
                 use: 'file-loader'
             },*/
             {
-                test: /\.css$/,
+                test: /\.(png|jpg|jpeg|svg)/,
                 use: [
-                    // 'style-loader',
-                    MiniCssExtractPlugin.loader,
-                    'css-loader',
-                    'postcss-loader'
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].[ext]',
+                            outputPath: 'images/'
+                        }
+                    }
                 ]
             },
+            // {
+            //     test: /\.css$/,
+            //     use: [
+            //         // 'style-loader',
+            //         MiniCssExtractPlugin.loader,
+            //         'css-loader',
+            //         'postcss-loader'
+            //     ]
+            // },
+            {
+                test: /\.less$/,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    {
+                        loader: "css-loader",
+                    },
+                    {
+                        loader: "less-loader",
+                    },
+                ],
+            }
         ]
+    },
+    resolve: {
+        extensions: [".ts", ".js", ".less"]
     },
     plugins: [
         new CleanWebpackPlugin(),

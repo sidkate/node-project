@@ -1,0 +1,33 @@
+.product-list {
+    display: flex;
+    align-content: flex-start;
+    /*align-items: baseline;*/
+    padding: 0;
+    flex-wrap: wrap;
+    margin: auto;
+
+    & > li{
+        display: flex;
+        border-radius: 10px;
+        box-shadow: 0 0 10px #3e4d62;
+        width: 200px;
+        height: 310px;
+        margin: 10px 15px;
+        padding: 20px 10px 40px;
+    }
+
+    & li {
+        display: list-item;
+        text-align: center;
+    }
+      
+    & a {
+        text-decoration: none;
+        color: #3e4d62;
+    }
+      
+    & a:hover {
+        text-decoration: underline;
+        color: #3e4d62;
+    }
+}
