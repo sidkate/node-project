@@ -11,6 +11,7 @@ server.set('view engine', 'ejs');
 server.set('views', path.resolve(__dirname, 'views'));
 
 server.use(express.static(path.resolve(__dirname, 'public')));
+server.use('/img', express.static(path.resolve(__dirname, '../data/img'))); // images for products
 
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
