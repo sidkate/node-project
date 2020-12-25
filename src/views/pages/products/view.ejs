@@ -1,0 +1,21 @@
+<%- include('../../fragments/header.ejs'); %>
+
+<div class="content">
+    <hr />
+    <h1 class="content__h1">Каталог</h1>
+    <ul class="product-list">
+        <% products.forEach(product => { %>
+            <li>
+                <a href="#"><img src="<%= product.img %>" width="195" height="280" /><br />
+                <%= product.title %></a><br />
+                <%= product.price %> р.
+                <button class="product-list__button" onclick="shoppingCart.addItemToBasket('<%= product.id %>')">
+                  В корзину
+                </button>
+            </li>
+        <% }); %>
+    </ul>
+    <hr />
+</div>
+
+<%- include('../../fragments/footer.ejs'); %>
