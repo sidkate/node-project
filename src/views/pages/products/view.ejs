@@ -9,7 +9,7 @@
                 <a href="#"><img src="<%= product.img %>" width="195" height="280" /><br />
                 <%= product.title %></a><br />
                 <%= product.price %> р.
-                <button class="product-list__button" onclick="shoppingCart.addItemToBasket('<%= product.id %>')">
+                <button class="product-list__button" onclick="myAjax.shoppingCart.addItemToBasket('<%= product.id %>', '<%= product.title %>', `<%= product.price %>`)">
                   В корзину
                 </button>
             </li>

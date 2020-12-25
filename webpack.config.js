@@ -5,9 +5,9 @@ const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-    mode: 'production',
-    //devtool: 'eval-cheap-module-source-map',
-    entry: path.resolve(__dirname, 'src/frontend/scripts/ajax.js'),
+    //mode: 'production',
+    devtool: 'inline-source-map',
+    entry: path.resolve(__dirname, 'src/scripts/main.ts'),
     output: {
         publicPath: "/",
         path: path.resolve(__dirname, 'src/public'),
@@ -16,10 +16,15 @@ module.exports = {
     },
     module: {
         rules: [
+            // {
+            //     test: /\.js$/,
+            //     exclude: /node_modules/,
+            //     use: 'babel-loader'
+            // },
             {
-                test: /\.js$/,
+                test: /\.ts$/,
                 exclude: /node_modules/,
-                use: 'babel-loader'
+                use: 'ts-loader'
             },
             /*{
                 test: /\.(png|jpg|jpeg|svg)/,
