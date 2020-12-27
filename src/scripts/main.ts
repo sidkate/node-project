@@ -1,4 +1,6 @@
 import '/src/assets/themes/base/styles/base.less';
+import '/src/assets/themes/base/images/logo2.jpg';
+import '/src/assets/themes/base/images/loader.gif';
 import { ShoppingCart } from "./shopping-cart";
 
 export let shoppingCart: ShoppingCart;
@@ -49,4 +51,11 @@ export function deleteProduct(id) {
         .then((json) => {
             getProducts();
         })
+}
+
+export function openBurger() {
+    let divElement = document.getElementsByClassName('menu-burger')[0];
+    divElement.classList.toggle('_active');
+    let ulElement = document.getElementsByClassName('menu-main')[0];
+    ulElement.classList.toggle('_active');
 }

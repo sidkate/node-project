@@ -9,16 +9,16 @@
     <body>
         <div id="container" class="container">
             <div class="header">
-                <a class="header__logo" href=""><img src="../../assets/themes/base/images/logo2.jpg" /></a>
-                
-                <ul class="menu-main">
-                    <li class="menu-main__home"><a href="index.html">Главная</a></li>
-                    <li class="menu-main__catalog _active"><a href="#">Каталог</a></li>
-                    <li class="menu-main__contacts"><a href="contacts.html">Контакты</a></li>
-                    <li class="menu-main__registr"><a href="registration.html">Регистрация</a></li>
-                    <li class="menu-main__basket" onclick="myAjax.shoppingCart.openPopup()"><a href="#" id="basket">0</a></li>
-                </ul>
-                <div class="menu-burger">
+                <a class="header__logo" href=""><img class="header__logo" src="/images/logo2.jpg" /></a>
+                <div class="menu-burger" onclick="myAjax.openBurger()">
                     <span></span>
                 </div>
+                <ul class="menu-main">
+                    <li class="menu-main__home"><a href="/">Главная</a></li>
+                    <li class="menu-main__catalog _active"><a href="/products">Каталог</a></li>
+                    <li class="menu-main__contacts"><a href="#">Контакты</a></li>
+                    <li class="menu-main__registr"><a href="#">Регистрация</a></li>
+                    <li class="menu-main__basket" onclick="myAjax.shoppingCart.openPopup()"><a href="#" id="basket">0</a></li>
+                </ul>
+                
             </div>
