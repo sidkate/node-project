@@ -10,7 +10,7 @@ export class ShoppingCart {
     private popup: HTMLElement;
     private popupList: HTMLElement;
 
-    constructor() {
+    public constructor() {
         const container: HTMLElement = document.getElementById('container');
 
         this.products = new Map<string, Product>();
@@ -28,7 +28,7 @@ export class ShoppingCart {
         // this.wrapperElement.appendChild(content);
     }
 
-    addItemToBasket(id: string, title: string, price: number) {
+    public addItemToBasket(id: string, title: string, price: number): void {
         if (this.popup)
             return;
 
@@ -46,7 +46,7 @@ export class ShoppingCart {
         });
     }
 
-    updatePopupData() {
+    private updatePopupData(): void {
 
         this.popupList.innerHTML = '';
 
@@ -58,7 +58,7 @@ export class ShoppingCart {
             this.closePopup();
     }
 
-    deleteProduct(id: string) {
+    public deleteProduct(id: string): void {
         let product = this.products.get(id);
         if (product) {
             this.products.delete(id);
@@ -67,7 +67,7 @@ export class ShoppingCart {
         }
     }
 
-    openPopup() {
+    public openPopup(): void {
         if (this.popup)
             return;
 
@@ -96,27 +96,27 @@ export class ShoppingCart {
         this.updatePopupData();
     }
 
-    closePopup() {
+    private closePopup(): void {
         if (this.popup) {
             this.popupWrapper.removeChild(this.popup);
             this.popup = undefined;
         }
     }
 
-    showLoader(callback: TimerHandler) {
+    private showLoader(callback: TimerHandler): void {
         loader.style.visibility = 'visible';
         setTimeout(callback, 2000);
     }
 
-    hideLoader() {
+    private hideLoader(): void {
         loader.style.visibility = 'hidden';
     }
 
-    get counter() {
+    private get counter(): number {
         return Array.from(this.products.values()).reduce((sum, product) => sum + product.getCount(), 0);
     }
 
-    updateBasketCounter() {
+    public updateBasketCounter(): void {
         basketElement.innerText = this.counter.toString();
     }
 

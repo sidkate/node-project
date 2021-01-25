@@ -5,7 +5,7 @@ export class Product {
 
     private count: number;
 
-    constructor(
+    public constructor(
         private id: string,
         private title: string,
         private price: number
@@ -13,7 +13,7 @@ export class Product {
         this.count = 1;
     }
 
-    appendToPopupList(wrapper) {
+    public appendToPopupList(wrapper): void {
         // destructuring assignment example
         // let [title, count, price] = [this.title, this.count, this.price];
         // let cost = count * price;
@@ -45,11 +45,11 @@ export class Product {
         }
     }
 
-    getCount() {
+    public getCount(): number {
         return this.count;
     }
 
-    getCost() {
+    private getCost(): number {
         return this.count * this.price;
     }
 }

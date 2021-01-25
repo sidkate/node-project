@@ -2,12 +2,12 @@
 export class Counter {
     onchange: (count: any) => void;
 
-    constructor(private wrapper: HTMLElement, private count: number) {
+    public constructor(private wrapper: HTMLElement, private count: number) {
         this.createElement();
         this.updateCounterValue();
     }
 
-    createElement() {
+    private createElement(): void {
         let counterTemplate = `
             <div class="counter-in-popup">
             <div class="minus">-</div>
@@ -22,19 +22,19 @@ export class Counter {
         plusElement.onclick = () => { this.plus() };
     }
 
-    updateCounterValue() {
+    private updateCounterValue(): void {
         let counterValueElement: HTMLElement = <HTMLElement>this.wrapper.getElementsByClassName('counter-value')[0];
         counterValueElement.innerText = this.count.toString();
         if (this.onchange)
             this.onchange(this.count);
     }
 
-    plus() {
+    private plus(): void {
         this.count++;
         this.updateCounterValue();
     }
 
-    minus() {
+    private minus(): void {
         this.count--;
         this.updateCounterValue();
     }
